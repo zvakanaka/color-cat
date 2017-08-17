@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="import" href="./color-cat.html">
+  </head>
+  <body>
+<style media="screen">
+  color-cat#color-change {
+    --color-red: #fcc;
+    --background-color: #555;
+  }
+</style>
+<color-cat>Colorful cat</color-cat>
+<color-cat fit>Colorful cat
+    with line
+breaks.</color-cat>
+<color-cat fit>   _____      _
+  / ____|    | |
+ | |     __ _| |_ ___
+ | |    / _` | __/ __|
+ | |___| (_| | |_\__ \
+  \_____\__,_|\__|___/
+</color-cat>
+<p>Put a <color-cat inline>Colorful cat</color-cat> in a sentence.</p>
+<color-cat fit id="color-change">Color change (CSS Variables)</color-cat>
+Update innerHTML or textContent: <color-cat fit id="dynamic"></color-cat>
+<script>
+document.querySelector('#dynamic').textContent = new Date();
+setInterval(() => {document.querySelector('#dynamic').textContent = new Date();}, 1000);
+(function() {
+  'use strict';
+  // thanks: https://gist.github.com/ebidel/1d5ede1e35b6f426a2a7
+  function lazyLoadWCPolyfillsIfNecessary(src) {
+    let onload = function() {
+      if (!window.HTMLImports) {
+        document.dispatchEvent(
+          new CustomEvent('WebComponentsReady', {bubbles: true}));
+      }
+    };
+    let webComponentsSupported = (
+      'registerElement' in document
+      && 'import' in document.createElement('link')
+      && 'content' in document.createElement('template'));
+    if (!webComponentsSupported) {
+      let script = document.createElement('script');
+      script.async = true;
+      script.src = src;
+      script.onload = onload;
+      document.head.appendChild(script);
+    } else {
+      onload();
+    }
+  }
+  lazyLoadWCPolyfillsIfNecessary('https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.7/webcomponents-loader.js');
+})();
+</script>
+</body>
+</html>
