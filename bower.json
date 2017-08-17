@@ -1,0 +1,29 @@
+{
+  "name": "color-cat",
+  "homepage": "https://github.com/zvakanaka/color-cat",
+  "authors": [
+    "Adam Quinton <quintonish@gmail.com>"
+  ],
+  "description": "native v1 web component super-pre tag",
+  "main": "color-cat.html",
+  "keywords": [
+    "custom",
+    "element",
+    "web-component",
+    "v1",
+    "shadow-dom",
+    "cats",
+    "cat",
+    "color",
+    "colorful",
+    "rainbow"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
