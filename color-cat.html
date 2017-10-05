@@ -5,34 +5,34 @@
     constructor() {
       super(); // always always
       let shadowRoot = this.attachShadow({mode: 'open'});
-      let colors = { red: '#f9857b', orange: '#d19a66', yellow: '#e5c07b', green: '#a3eea0', blue: '#4ba7ef', magenta: '#df9cf3',  black: '#282c34', white: '#dbdff4'};
-      shadowRoot.innerHTML = `
-        <style>/* :host is SHADOW ONLY *//* when no shadow is available (shady/light/regular DOM), must use tag-name */
-          :host pre { background-color: var(--background-color, ${colors.black}); color: var(--color, ${colors.white}); box-shadow: 0 2px 2px rgba(0, 0, 0, .3); padding: 5px; margin: 5px; }
-          color-cat pre { background-color: var(--background-color, ${colors.black}); color: var(--color, ${colors.white}); box-shadow: 0 2px 2px rgba(0, 0, 0, .3); padding: 5px; margin: 5px; }
-          :host([scroll]) > pre { overflow: scroll !important; }
-          color-cat[scroll] > pre { overflow: scroll !important; }
-          :host([inline]) > pre { display: inline; }
-          color-cat[inline] > pre { display: inline; }
-          :host([fit]) > pre { width: fit-content; -moz-fit-content; width: -webkit-fit-content; }
-          color-cat[fit] > pre { width: fit-content; width: -moz-fit-content; width: -webkit-fit-content; }
-          :host .green { color: var(--color-green, ${colors.green}); }
-          color-cat .green { color: var(--color-green, ${colors.green}); }
-          :host .orange { color: var(--color-orange, ${colors.orange}); }
-          color-cat .orange { color: var(--color-orange, ${colors.orange}); }
-          :host .blue { color: var(--color-blue, ${colors.blue}); }
-          color-cat .blue { color: var(--color-blue, ${colors.blue}); }
-          :host .magenta { color: var(--color-magenta, ${colors.magenta}); }
-          color-cat .magenta { color: var(--color-magenta, ${colors.magenta}); }
-          :host .red { color: var(--color-red, ${colors.red}); }
-          color-cat .red { color: var(--color-red, ${colors.red}); }
-          :host .yellow { color: var(--color-yellow, ${colors.yellow}); }
-          color-cat .yellow { color: var(--color-yellow, ${colors.yellow}); }
-        </style>
-        <pre></pre>
-      `;
     }
     connectedCallback() {
+      let colors = { red: '#f9857b', orange: '#d19a66', yellow: '#e5c07b', green: '#a3eea0', blue: '#4ba7ef', magenta: '#df9cf3', black: '#282c34', white: '#dbdff4'};
+      this.shadowRoot.innerHTML = `
+      <style>/* :host is SHADOW ONLY *//* when no shadow is available (shady/light/regular DOM), must use tag-name */
+      :host pre { background-color: var(--background-color, ${colors.black}); color: var(--color, ${colors.white}); box-shadow: 0 2px 2px rgba(0, 0, 0, .3); padding: 5px; margin: 5px; }
+      color-cat pre { background-color: var(--background-color, ${colors.black}); color: var(--color, ${colors.white}); box-shadow: 0 2px 2px rgba(0, 0, 0, .3); padding: 5px; margin: 5px; }
+      :host([scroll]) > pre { overflow: scroll !important; }
+      color-cat[scroll] > pre { overflow: scroll !important; }
+      :host([inline]) > pre { display: inline; }
+      color-cat[inline] > pre { display: inline; }
+      :host([fit]) > pre { width: fit-content; -moz-fit-content; width: -webkit-fit-content; }
+      color-cat[fit] > pre { width: fit-content; width: -moz-fit-content; width: -webkit-fit-content; }
+      :host .green { color: var(--color-green, ${colors.green}); }
+      color-cat .green { color: var(--color-green, ${colors.green}); }
+      :host .orange { color: var(--color-orange, ${colors.orange}); }
+      color-cat .orange { color: var(--color-orange, ${colors.orange}); }
+      :host .blue { color: var(--color-blue, ${colors.blue}); }
+      color-cat .blue { color: var(--color-blue, ${colors.blue}); }
+      :host .magenta { color: var(--color-magenta, ${colors.magenta}); }
+      color-cat .magenta { color: var(--color-magenta, ${colors.magenta}); }
+      :host .red { color: var(--color-red, ${colors.red}); }
+      color-cat .red { color: var(--color-red, ${colors.red}); }
+      :host .yellow { color: var(--color-yellow, ${colors.yellow}); }
+      color-cat .yellow { color: var(--color-yellow, ${colors.yellow}); }
+      </style>
+      <pre></pre>
+      `;
       this._refresh();
       const observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
@@ -53,5 +53,5 @@
         .join('');
     }
   });
-})();
+}());
 </script>
